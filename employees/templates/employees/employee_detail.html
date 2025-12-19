@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'employees/css/style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="detail-container">
+            <h1>Employee Details</h1>
+            <div class="detail-item">
+                <strong>Name:</strong>
+                <span>{{ employee.name }}</span>
+            </div>
+            <div class="detail-item">
+                <strong>Email:</strong>
+                <span>{{ employee.email }}</span>
+            </div>
+            <div class="detail-item">
+                <strong>Position:</strong>
+                <span>{{ employee.position }}</span>
+            </div>
+            <div class="detail-item">
+                <strong>Department:</strong>
+                <span>{{ employee.department }}</span>
+            </div>
+            <div class="detail-item">
+                <strong>Hire Date:</strong>
+                <span>{{ employee.hire_date }}</span>
+            </div>
+            <a href="{% url 'employee_list' %}" class="back-link">← Back to List</a>
+        </div>
+    </div>
+</body>
+
+</html>

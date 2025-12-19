@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'employees/css/style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Company Employees</h1>
+        </header>
+        <div class="main-content">
+            <a href="{% url 'add_employee' %}" class="add-employee-btn">➕ Add New Employee</a>
+            <ul class="employee-grid">
+                {% for employee in employees %}
+                <li class="employee-card">
+                    <h3>{{ employee.name }}</h3>
+                    <p><strong>Position:</strong> {{ employee.position }}</p>
+                    <p><strong>Department:</strong> {{ employee.department }}</p>
+                    <p><strong>Email:</strong> {{ employee.email }}</p>
+                    <p><strong>Hire Date:</strong> {{ employee.hire_date }}</p>
+                    <a href="{% url 'employee_detail' employee.pk %}">View Details</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
